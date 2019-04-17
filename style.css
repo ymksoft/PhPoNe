@@ -1,13 +1,18 @@
+html,
+body {
+    font-family: monospace;
+}
+
 header {
-    height: 100px;
-    background-color: beige;
+    height: 50px;
+    width: 100%;
+    background-color: #ddd;
     display: inline-block;
-    display: flex;
-    align-items: center;
 }
 
 header li {
     list-style-type: none;
+     display: inline-block;
 }
 
 header li a {
@@ -27,8 +32,8 @@ hr {
     padding-left: 20px;
 }
 footer {
-    height: 100px;
-    background: #ccc;
+    height: 50px;
+    background: #ddd;
     margin-top: 30px;
     display: flex;
     align-items: center;

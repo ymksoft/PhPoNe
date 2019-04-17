@@ -1,93 +1,98 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
     $tilte = "Мой стайт";
     $currentYear = date("Y");
     $contentH1 = "Ответы на вопросы";
     $hrefHome = "Home";
 
 ?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><?=$tilte?></title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-   
-   <header>
-       <ul>
-           <li><a href="#"><?=$hrefHome?></a></li>
-       </ul>
-   </header>
-   <content>
-       <h1><?=$contentH1?></h1>
-   
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            <?=$tilte?>
+        </title>
+        <link rel="stylesheet" href="style.css"> </head>
 
-<?php
+    <body>
+        <header>
+            <ul>
+                <li>
+                    <a href="#">
+                        <?=$hrefHome?>
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <content>
+            <h1><?=$contentH1?></h1>
+            <?php
 
 //////////////////////////////////////////////////////////////////////////////////
 //
 // Ответы на вопросы
 //
 
-    $a = 5;
-    $b = '05';
+        $a = 5;
+        $b = '05';
 
-    var_dump($a == $b);         // Почему true?
+        var_dump($a == $b);         // Почему true?
+        echo "<br>Ответ: Потому что правую часть приведет к нужному типу. Левый тип число, правый будет приведен от строки к числу. == проверяет только значение, 5=5<hr>";
 
-echo "<br>Ответ: Потому что правую часть приведет к нужному типу. Левый тип число, правый будет приведен от строки к числу. == проверяет только значение, 5=5<hr>";
+        var_dump((int)'012345');     // Почему 12345?
+        var_dump((int)'0000012345'); // ноль не то число, которое интересно php )))
+        echo "<br>Ответ: Приведение к числу так работает. Если бы после 0 был знак не цифры и не код других систем счисления, то был бы 0<hr>";
 
-    var_dump((int)'012345');     // Почему 12345?
-var_dump((int)'0000012345'); // ноль не то число, которое интересно php )))
+        var_dump((float)123.0 === (int)123.0); // Почему false?
+        echo "<br>Ответ: тип float не равен типу int<hr>";
 
-echo "<br>Ответ: Приведение к числу так работает. Если бы после 0 был знак не цифры и не код других систем счисления, то был бы 0<hr>";
+        var_dump((int)0 === (int)'hello, world'); // Почему true?
+        var_dump((int)0 === (int)""); // Строка без цифр = 0
+        echo "<br>Ответ: Приведение строки без цифр к числу даст 0, 0=0<hr>";
 
-    var_dump((float)123.0 === (int)123.0); // Почему false?
+        //////////////////////////////////////////////////////////////////////////////////
+        //
+        // Задачка на поменять местами значения int без выделения дополнительной памяти
+        //
 
-echo "<br>Ответ: тип float не равен типу int<hr>";
+        $a=1;
+        $b=2;
 
-    var_dump((int)0 === (int)'hello, world'); // Почему true?
-var_dump((int)0 === (int)""); // Строка без цифр = 0
+        echo "A=$a B=$b<br>";
 
-echo "<br>Ответ: Приведение строки без цифр к числу даст 0, 0=0<hr>";
+        // 1С style
+        $a=$a+$b;
+        $b=$a-$b; 
+        $a=$a-$b; 
 
-//////////////////////////////////////////////////////////////////////////////////
-//
-// Задачка на поменять местами значения int без выделения дополнительной памяти
-//
+        echo "A=$a B=$b<hr>";
 
-$a=1;
-$b=2;
+        echo "Другой вариант через ^= <br>";
 
-echo "A=$a B=$b<br>";
+        $a=1;
+        $b=2;
 
-// 1С style
-$a=$a+$b;
-$b=$a-$b; 
-$a=$a-$b; 
+        echo "A=$a B=$b<br>";
 
-echo "A=$a B=$b<hr>";
+        // C style
+        $a^=$b^=$a^=$b;
 
-echo "Другой вариант через ^= <br>";
-
-$a=1;
-$b=2;
-
-echo "A=$a B=$b<br>";
-
-// C style
-$a^=$b^=$a^=$b;
-
-echo "A=$a B=$b<hr>";
+        echo "A=$a B=$b<hr>";
 
     ?>
-</content>
-  
-   <footer>
-    <p>&copy;&nbsp;Все права защищены&nbsp;<?=$currentYear?></p>
-   </footer>
-    
-</body>
-</html>
+        </content>
+        <footer>
+            <p>&copy;&nbsp;Все права защищены&nbsp;
+                <?=$currentYear?>
+            </p>
+        </footer>
+    </body>
+
+    </html>

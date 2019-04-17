@@ -4,8 +4,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-
-    $tilte = "Мой стайт";
+    $tilte = "Lesson 01";
     $currentYear = date("Y");
     $contentH1 = "Ответы на вопросы";
     $hrefHome = "Home";

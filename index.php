@@ -28,6 +28,11 @@
                         <?=$hrefHome?>
                     </a>
                 </li>
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
             </ul>
         </header>
         <content>

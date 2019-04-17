@@ -1,6 +1,6 @@
 <?php
 
-    $tilte = "Мой стайт";
+    $tilte = "Lesson one";
     $currentYear = date("Y");
     $contentH1 = "Ответы на вопросы";
     $hrefHome = "Home";

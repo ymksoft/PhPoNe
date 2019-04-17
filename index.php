@@ -1,11 +1,15 @@
 <?php
 
+<<<<<<< HEAD
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
     $tilte = "Мой стайт";
+=======
+    $tilte = "Lesson one";
+>>>>>>> origin/master
     $currentYear = date("Y");
     $contentH1 = "Ответы на вопросы";
     $hrefHome = "Home";

@@ -8,17 +8,18 @@
     $currentYear = date("Y");
     $contentH1 = "Ответы на вопросы";
     $hrefHome = "Home";
+    $charset = "UTF-8"
 
 ?>
+   
     <!DOCTYPE html>
     <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <title>
-            <?=$tilte?>
-        </title>
-        <link rel="stylesheet" href="style.css"> </head>
+        <meta charset="<?=$charset?>">
+        <title><?=$tilte?></title>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
     <body>
         <header>

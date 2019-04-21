@@ -173,20 +173,81 @@ $a=2;
 $b=16;
 echo 'power='.power($a,$b).'<br>';
 
-        
-//////////////////////////////////////////////////////////////////////////////////
-//
-// Ответы на вопросы
-//
-        
- function fib($n) { 
+/*
+7. *Написать функцию, которая вычисляет текущее время и возвращает его в формате с правильными склонениями, например:
+22 часа 15 минут
+21 час 43 минуты
+*/
+
+/*
+я бы выбрал такой вариант реализации: 
+https://ru.stackoverflow.com/questions/450179/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B7%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D0%B8%D1%8F-%D1%81%D0%BB%D0%BE%D0%B2-%D0%BF%D1%80%D0%B8-%D1%80%D0%B0%D0%B7%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D1%85-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F%D1%85
+два других в том же русле, но написаны менее изящно:
+
+на регулярных:
+https://wp-kama.ru/question/funktsiya-skloneniya-slov-posle-chisel-php
+
+без массивов:
+https://youon.ru/Web/PHP-MySQL-Java/funktsiya-skloneniya-znachenij-chisel-na-php-dni-minuty-chasy-i-td
+*/
+
+/**
+ * Функция возвращает окончание для множественного числа слова на основании числа и массива окончаний
+ * @param  $number Integer Число на основе которого нужно сформировать окончание
+ * @param  $endingsArray  Array Массив слов или окончаний для чисел (1, 4, 5),
+ *         например array('яблоко', 'яблока', 'яблок')
+ * @return String
+ */
+function getNumEnding($number, $endingArray)
+{
+    $number = $number % 100;
+    if ($number>=11 && $number<=19) {
+        $ending=$endingArray[2];
+    }
+    else {
+        $i = $number % 10;
+        switch ($i)
+        {
+            case (1): $ending = $endingArray[0]; break;
+            case (2):
+            case (3):
+            case (4): $ending = $endingArray[1]; break;
+            default: $ending=$endingArray[2];
+        }
+    }
+    return $ending;
+}
+$hours = date('H');
+$minutes = date('m');
+$seconds = date('s');
+
+echo 'Осталось '.$hours.' ' .getNumEnding($hours, array('час', 'часа', 'часов')).' '.
+    $minutes . ' ' .getNumEnding($minutes, array('минута', 'минуты', 'минут')).' '.
+    $seconds . ' '. getNumEnding($seconds, array('секунда', 'секунды', 'секунд'));
+echo '<br>';
+echo 'В течение '.$hours.' ' .getNumEnding($hours, array('часа', 'часов', 'часов')).' '.
+    $minutes . ' ' .getNumEnding($minutes, array('минуты', 'минут', 'минут')).' '.
+    $seconds . ' '. getNumEnding($seconds, array('секунды', 'секунд', 'секунд'));
+
+echo '<hr>';
+
+function fib($n) { 
  if ( $n == 1 || $n == 2) 
      return $n - 1; 
  else 
      return fib($n-1) + fib($n-2); 
  }
 echo fib(10)."<br>";
+
+//////////////////////////////////////////////////////////////////////////////////
+//
+// Ответы на вопросы
+//
+        
  
+ 
+echo '<hr>';
+
         $a = 5;
         $b = '05';
 

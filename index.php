@@ -1,6 +1,8 @@
 <?php
 
+
 // rest https://www.youtube.com/watch?v=dGMi-lVZk7s&feature=youtu.be
+  
 
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -11,6 +13,8 @@
     $contentH1 = "Ответы на вопросы";
     $hrefHome = "Home";
     $charset = "UTF-8"
+
+   
 
 ?>
    
@@ -46,7 +50,15 @@
 //
 // Ответы на вопросы
 //
-
+        
+ function fib($n) { 
+ if ( $n == 1 || $n == 2) 
+     return $n - 1; 
+ else 
+     return fib($n-1) + fib($n-2); 
+ }
+echo fib(10);
+ 
         $a = 5;
         $b = '05';
 

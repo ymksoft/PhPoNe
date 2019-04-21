@@ -128,6 +128,33 @@ echo sub($a,$b)."<br>";
 echo div($a,$b)."<br>";
 echo mul($a,$b)."<br>";
 
+/*
+4. Реализовать функцию с тремя параметрами: function mathOperation($arg1, $arg2, $operation), где $arg1, $arg2 – значения аргументов, $operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+*/
+function mathOperation($arg1, $arg2, $operation) {
+    switch($operation) {
+        case "+":
+            return add($arg1,$arg2);
+            break;
+        case "-":
+            return sub($arg1,$arg2);
+            break;
+        case "/":
+            return div($arg1,$arg2);
+            break;
+        case "*":
+            return mul($arg1,$arg2);
+            break;
+        default:
+            break;
+    }   
+    return NULL;
+}
+echo mathOperation($a,$b,"+")."<br>";
+echo mathOperation($a,$b,"-")."<br>";
+echo mathOperation($a,$b,"/")."<br>";
+echo mathOperation($a,$b,"*")."<br>";
+
         
 //////////////////////////////////////////////////////////////////////////////////
 //

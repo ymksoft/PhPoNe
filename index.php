@@ -158,6 +158,21 @@ echo mathOperation($a,$b,"-")."<br>";
 echo mathOperation($a,$b,"/")."<br>";
 echo mathOperation($a,$b,"*")."<br>";
 
+/*
+6. *С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power($val, $pow), где $val – заданное число, $pow – степень.
+*/
+
+function power($val, $pow) {
+    //  степень - целое число больше 0
+    if( $pow <= 1 )
+        return $val;
+    
+    return $val * power($val, --$pow);
+}
+$a=2;
+$b=16;
+echo 'power='.power($a,$b).'<br>';
+
         
 //////////////////////////////////////////////////////////////////////////////////
 //

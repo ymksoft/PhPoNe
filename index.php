@@ -9,7 +9,10 @@
     error_reporting(E_ALL);
 
     $tilte = "Lesson 02";
+
+    /* 5. Посмотреть на встроенные функции PHP. Используя имеющийся HTML шаблон, вывести текущий год в подвале при помощи встроенных функций PHP. */
     $currentYear = date("Y");
+
     $contentH1 = "Функции";
     $hrefHome = "Home";
     $charset = "UTF-8"
@@ -218,8 +221,7 @@ echo fib(10)."<br>";
     ?>
         </content>
         <footer>
-            <p>&copy;&nbsp;Все права защищены&nbsp;
-                <?=$currentYear?>
+            <p>&copy;&nbsp;Все права защищены&nbsp;<?=$currentYear?>
             </p>
         </footer>
     </body>

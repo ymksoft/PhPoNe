@@ -46,6 +46,68 @@
             </ul>
         </header>
         <content>
+            
+<?php
+          
+/*
+6. В имеющемся шаблоне сайта заменить статичное меню (ul - li) на генерируемое через PHP. Необходимо представить пункты меню как элементы массива и вывести их циклом. Подумать, как можно реализовать меню с вложенными подменю? Попробовать его реализовать.
+*/        
+
+$menu = [
+	[
+		'title' => 'Главная',
+		'link' => '/'
+	],
+	[
+		'title' => 'Контакты',
+		'link' => '/contancts'
+	],
+	[
+		'title' => 'Статьи',
+		'link' => '/articles',
+		'children' => [
+			[
+				'title' => 'Котики',
+				'link' => '/articles/cats'
+			],
+			[
+				'title' => 'Собачки',
+				'link' => '/articles/dogs',
+				'children' => [
+					[
+						'title' => 'Доберманы',
+						'link' => '/articles/dogs/dobermani'
+					],
+					[
+						'title' => 'Корги',
+						'link' => '/articles/dogs/corgi',
+						'children' => [/* */]
+					]
+				]
+			]
+		]
+	]
+];
+
+function viewMenu($arr) {
+    echo '<ul>';
+    for($i = 0; $i < count($arr);$i++) {
+        $link = $arr[$i]['link'];
+        $title = $arr[$i]['title'];
+        echo '<li><a href='.$link.'>'.$title.'</a>';
+        if(isset($arr[$i]['children'])) {
+            viewMenu($arr[$i]['children']);
+        }
+        echo '</li>';
+    }
+     echo '</ul>';
+}
+
+viewMenu($menu);
+
+?>
+              
+           <div class="right">
             <h1><?=$contentH1?></h1>
             <?php
 
@@ -482,6 +544,7 @@ echo '<hr>';
         echo "A=$a B=$b<hr>";
 
     ?>
+       </div>
         </content>
         <footer>
             <p>&copy;&nbsp;Все права защищены&nbsp;<?=$currentYear?>

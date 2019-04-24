@@ -23,14 +23,6 @@ header li a:hover {
     color: red;
 }
 
-
-content {
-}
-hr {
-    border: 1px;
-    font-weight: 700;
-    padding-left: 20px;
-}
 footer {
     height: 50px;
     background: #ddd;
